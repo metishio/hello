@@ -6,10 +6,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     garnix-lib.url = "github:garnix-io/garnix-lib";
     flake-utils.url = "github:numtide/flake-utils";
-    # npmlock2nix-repo = {
-    #   url = "github:nix-community/npmlock2nix";
-    #   flake = false;
-    # };
   };
 
   outputs = inputs:
@@ -21,10 +17,6 @@
         {
           # Here you can define packages that your flake outputs.
           packages = {
-            # This imports `./frontend/default.nix` which defines a nix package
-            # that builds the frontend bundle. This will be served as static
-            # files by the server.
-            # frontend-bundle = pkgs.callPackage ./frontend { self = inputs.self; };
             backend = pkgs.callPackage ./backend { };
           };
           devShells.default = pkgs.mkShell
